@@ -490,3 +490,7 @@ body, html {
     height: 100vh;
     object-fit: cover;
 }
+
+#video-intro {
+  display: none !important;
+}
