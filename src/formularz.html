@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularz aplikacyjny | CometJet</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+  <header class="bg-black p-4 shadow-md flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold text-yellow-400 hover:text-yellow-300 transition">← Powrót</a>
+    <h1 class="text-2xl font-bold text-white">Formularz aplikacyjny</h1>
+  </header>
+
+  <main class="py-16 px-6 max-w-3xl mx-auto">
+    <form id="applyForm" class="bg-gray-800 p-8 rounded-lg shadow-lg space-y-6">
+      <div>
+        <label class="block mb-2 font-semibold" for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="name" required class="w-full p-3 rounded bg-gray-700 border border-gray-600 text-white" />
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold" for="email">Email</label>
+        <input type="email" id="email" name="email" required class="w-full p-3 rounded bg-gray-700 border border-gray-600 text-white" />
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold" for="callsign">Callsign (nick pilota)</label>
+        <input type="text" id="callsign" name="callsign" required class="w-full p-3 rounded bg-gray-700 border border-gray-600 text-white" />
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold" for="experience">Doświadczenie w lotnictwie wirtualnym</label>
+        <select id="experience" name="experience" required class="w-full p-3 rounded bg-gray-700 border border-gray-600 text-white">
+          <option value="">Wybierz...</option>
+          <option>Brak</option>
+          <option>Małe (0-50h)</option>
+          <option>Średnie (50-200h)</option>
+          <option>Duże (200h+)</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold" for="motivation">Dlaczego chcesz dołączyć?</label>
+        <textarea id="motivation" name="motivation" rows="5" required class="w-full p-3 rounded bg-gray-700 border border-gray-600 text-white"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 px-6 rounded-full transition">Wyślij zgłoszenie</button>
+      </div>
+    </form>
+    <div id="successMsg" class="hidden text-green-400 text-center mt-8 text-xl font-semibold">
+      ✅ Dziękujemy! Twoje zgłoszenie zostało przesłane.
+    </div>
+  </main>
+
+  <footer class="bg-black text-center py-6">
+    <p class="text-sm text-gray-400">&copy; 2025 CometJet Virtual Airlines</p>
+  </footer>
+
+  <script>
+    // Animacja wejściowa
+    gsap.from("form", { opacity: 0, y: 40, duration: 1, delay: 0.3 });
+
+    // Prosta obsługa formularza
+    document.getElementById("applyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      this.classList.add("hidden");
+      document.getElementById("successMsg").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+/* Podstawowe resetowanie stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; /* Usunięcie domyślnego marginesu body */
+    padding: 0;
+    padding-top: 60px; /* Dodajemy padding, aby treść nie była zasłonięta przez fixed navbar */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 0 0; /* Usunięto padding z lewej strony, zachowano tylko z prawej */
+    background-color: #0d1b2a;
+    position: fixed; /* Ustawiamy pozycję fixed, aby navbar był zawsze widoczny */
+    top: 0; /* Przyklejamy do góry */
+    width: 100%; /* Pełna szerokość */
+    left: 0; /* Wymuszenie pozycji na lewej krawędzi */
+    z-index: 1000; /* Wysoki z-index, aby navbar był nad innymi elementami */
+}
+
+.logo {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    display: block; /* Zapobiega domyślnym odstępom inline */
+    position: absolute; /* Absolutne pozycjonowanie względem header */
+    left: 0; /* Przyklejenie do lewej krawędzi header */
+    top: 50%;
+    transform: translateY(-50%); /* Wyśrodkowanie pionowe w header */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center; /* Wyrównanie linków w pionie */
+    padding-left: 1rem; /* Odstęp nawigacji od logo */
+}
+
+nav a {
+    color: #ffffff; /* Widoczny kolor tekstu */
+    text-decoration: none; /* Usunięto domyślne podkreślenie */
+    opacity: 1; /* Linki widoczne */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Stylizacja dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0d1b2a;
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.dropdown-menu a:hover {
+    opacity: 1;
+    color: #e63946;
+}
+
+/* Sekcja hero */
+.hero {
+    background-image: url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #e63946;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Sekcje główne */
+section {
+    padding: 2rem 1rem;
+}
+
+.fleet, .crew {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.fleet article, .crew article {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.fleet img, .crew img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Stopka */
+footer {
+    background-color: #0d1b2a;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Przełącznik językowy */
+.lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto; /* Wyrównanie do prawej strony */
+    margin-right: 1rem; /* Odstęp od krawędzi */
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background-color: #e63946;
+    border-color: #e63946;
+}
+
+/* Stylizacja sekcji Before Flight */
+.before-flight {
+    background-image: url('cockpit-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #0d1b2a; /* Fallback, jeśli obraz się nie załaduje */
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Półprzezroczysta nakładka dla czytelności */
+.before-flight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 27, 42, 0.8); /* Ciemne tło z przezroczystością */
+    z-index: 1;
+}
+
+/* Zawartość sekcji */
+.before-flight > * {
+    position: relative;
+    z-index: 2;
+}
+
+.before-flight h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.back-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #e63946;
+}
+
+/* Karty instrukcji */
+.instructions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.instruction-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instruction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.instruction-card .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.instruction-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.instruction-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Przyciski CTA */
+.cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #e63946;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta .btn:hover {
+    background-color: #d32f3a;
+    transform: scale(1.05);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .before-flight h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .instruction-card {
+        padding: 1rem;
+    }
+
+    .instruction-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+.pdf-container {
+    width: 100%;
+    height: 80vh; /* iframe zajmuje 80% wysokości okna */
+    max-width: 900px; /* maksymalna szerokość */
+    margin: 0 auto;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+ /* Gwiazdy: losowe pozycje i migotanie */
+ .stars {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Tworzymy 50 gwiazd za pomocą ::before i ::after na różnych elementach */
+  .stars::before, .stars::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow:
+      10vw 20vh white,
+      30vw 10vh white,
+      50vw 50vh white,
+      70vw 30vh white,
+      90vw 70vh white,
+      15vw 80vh white,
+      40vw 90vh white,
+      60vw 20vh white,
+      80vw 40vh white,
+      20vw 60vh white;
+    animation: twinkle 4s infinite ease-in-out alternate;
+  }
+
+  .stars::after {
+    width: 1.5px;
+    height: 1.5px;
+    top: 5vh;
+    left: 5vw;
+    animation-delay: 2s;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* Chmury: duży, półprzezroczysty obraz chmur, przesuwający się powoli */
+  .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('./src/img/rozowe-chmury.jpg') repeat-x;
+    background-size: cover;
+    opacity: 0.1;
+    animation: clouds-move 60s linear infinite;
+  }
+
+  @keyframes clouds-move {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  /* Dodatkowo responsywność */
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .starfield {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .starfield::before, .starfield::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out;
+    opacity: 0.4;
+    box-shadow:
+      10vw 20vh white,
+      25vw 30vh white,
+      40vw 70vh white,
+      60vw 10vh white,
+      80vw 40vh white,
+      15vw 80vh white,
+      35vw 50vh white,
+      55vw 90vh white,
+      70vw 25vh white,
+      90vw 60vh white;
+  }
+  
+  .starfield::after {
+    width: 1.5px;
+    height: 1.5px;
+    animation-delay: 2s;
+    opacity: 0.3;
+    box-shadow:
+      5vw 10vh white,
+      20vw 65vh white,
+      30vw 35vh white,
+      50vw 80vh white,
+      75vw 20vh white,
+      85vw 55vh white,
+      65vw 15vh white,
+      45vw 45vh white,
+      95vw 70vh white,
+      10vw 90vh white;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+
+  #video-intro {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Ukrycie intro */
+  #video-intro.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Video pełnoekranowe, dopasowane do kontenera */
+  .video-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* wyłącza scroll */
+    height: 100%;
+    width: 100%;
+  }
+  
+  #video-intro {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .video-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  /* Dla większości przeglądarek */
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE i Edge */
+    overflow-y: scroll; /* upewniamy się, że scroll jest aktywny */
+  }
+  
+  /* Dla Webkit (Chrome, Safari) */
+  body::-webkit-scrollbar {
+    display: none;
+  }

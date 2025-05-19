@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CometJet Virtual Airlines - Malowania Samolotów</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    #gallery { display: none; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <header class="bg-black text-white p-4 shadow-md">
+        <div class="flex items-center space-x-4 max-w-7xl mx-auto justify-between">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center space-x-4">
+              <img src="./src/img/logoCJ.png" alt="Logo" class="h-10 w-auto" />
+              <span class="text-xl font-bold">CometJet</span>
+            </a>
+          </div>
+      
+          <nav class="space-x-6 text-white text-sm uppercase tracking-wider flex items-center">
+            <a href="#hero" class="hover:text-yellow-400 transition">Start</a>
+            <a href="#flota" class="hover:text-yellow-400 transition">Flota</a>
+            <a href="#zaloga" class="hover:text-yellow-400 transition">Załoga</a>
+            <a href="#kontakt" class="hover:text-yellow-400 transition">Kontakt</a>
+      
+            <!-- Dropdown -->
+            <div class="relative" id="inne-menu">
+              <button id="inne-button" class="hover:text-yellow-400 transition uppercase text-sm tracking-wider flex items-center focus:outline-none">
+                Inne <span class="ml-1">▾</span>
+              </button>
+              <div id="inne-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-black text-white rounded shadow-lg z-50">
+                <a href="before-flight.html" class="block px-4 py-2 hover:bg-gray-800">Before Flight</a>
+                <a href="rules.html" class="block px-4 py-2 hover:bg-gray-800">Zasady i porady</a>
+                <a href="sop.html" class="block px-4 py-2 hover:bg-gray-800">SOP</a>
+                <a href="faq.html" class="block px-4 py-2 hover:bg-gray-800">FAQ</a>
+              </div>
+            </div>
+      
+            <a href="formularz.html" class="bg-yellow-400 text-black py-2 px-4 rounded-full hover:bg-yellow-300 transition font-bold shadow inline-block ml-2">Złóż aplikację</a>
+          </nav>
+      
+          <div class="lang-switcher ml-4">
+            <button class="lang-btn" data-lang="pl">PL</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+      </header>
+
+  <!-- Ekran logowania -->
+  <main class="flex-grow flex items-center justify-center px-6">
+    <div id="password-screen" class="max-w-md w-full bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-6">Wprowadź hasło, aby zobaczyć malowania</h1>
+      <input
+        id="password-input"
+        type="password"
+        placeholder="Hasło"
+        class="w-full p-3 rounded mb-4 bg-gray-700 border border-gray-600 text-white focus:outline-none"
+      />
+      <button
+        id="password-submit"
+        class="w-full bg-yellow-400 text-black font-bold py-3 rounded hover:bg-yellow-300 transition"
+      >
+        Zaloguj się
+      </button>
+      <p id="error-msg" class="text-red-500 mt-4 hidden">Nieprawidłowe hasło, spróbuj ponownie.</p>
+    </div>
+
+    <!-- Galeria malowań -->
+    <div id="gallery" class="max-w-7xl w-full">
+      <h1 class="text-4xl font-extrabold mb-8 text-center">Malowania Samolotów</h1>
+      <p class="text-center max-w-3xl mx-auto mb-12 text-gray-400">
+        Wybierz kategorię, aby filtrować malowania:
+      </p>
+
+      <!-- Filtry -->
+      <div class="flex justify-center mb-12 space-x-4">
+        <button class="filter-btn bg-yellow-400 text-black font-bold py-2 px-4 rounded" data-filter="all">Wszystkie</button>
+        <button class="filter-btn bg-gray-700 hover:bg-yellow-400 hover:text-black py-2 px-4 rounded" data-filter="airbus">Airbus</button>
+        <button class="filter-btn bg-gray-700 hover:bg-yellow-400 hover:text-black py-2 px-4 rounded" data-filter="boeing">Boeing</button>
+      </div>
+
+      <!-- Grid malowań -->
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        <!-- Przykładowe malowania Airbus -->
+        <div class="malowanie bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-yellow-400 transition transform hover:scale-105 cursor-pointer" data-category="airbus">
+          <img src="./src/img/livery1.jpg" alt="Malowanie A320neo" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Airbus A320neo - CometJet Classic</h3>
+          </div>
+        </div>
+
+        <div class="malowanie bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-yellow-400 transition transform hover:scale-105 cursor-pointer" data-category="airbus">
+          <img src="./src/img/livery2.jpg" alt="Malowanie A321neo" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Airbus A321neo - Modern Blue</h3>
+          </div>
+        </div>
+
+        <!-- Przykładowe malowania Boeing -->
+        <div class="malowanie bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-yellow-400 transition transform hover:scale-105 cursor-pointer" data-category="boeing">
+          <img src="./src/img/livery3.jpg" alt="Malowanie 737" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Boeing 737-800 - Night Sky</h3>
+          </div>
+        </div>
+
+        <div class="malowanie bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-yellow-400 transition transform hover:scale-105 cursor-pointer" data-category="boeing">
+          <img src="./src/img/livery4.jpg" alt="Malowanie 787" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Boeing 787 - Silver Streak</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-center py-6 text-gray-400">
+    &copy; 2025 CometJet Virtual Airlines
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

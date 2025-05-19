@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rules - CometJet Virtual Airlines</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    .pdf-container {
+      width: 100%;
+      height: 80vh;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pdf-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <header class="bg-black text-white p-4 shadow-md">
+        <div class="flex items-center space-x-4 max-w-7xl mx-auto justify-between">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center space-x-4">
+              <img src="./src/img/logoCJ.png" alt="Logo" class="h-10 w-auto" />
+              <span class="text-xl font-bold">CometJet</span>
+            </a>
+          </div>
+      
+          <nav class="space-x-6 text-white text-sm uppercase tracking-wider flex items-center">
+            <a href="index.html" class="hover:text-yellow-400 transition">Start</a>
+            <a href="index.html#flota" class="hover:text-yellow-400 transition">Flota</a>
+            <a href="index.html#zaloga" class="hover:text-yellow-400 transition">Załoga</a>
+            <a href="index.html#kontakt" class="hover:text-yellow-400 transition">Kontakt</a>
+      
+            <!-- Dropdown -->
+            <div class="relative" id="inne-menu">
+              <button id="inne-button" class="hover:text-yellow-400 transition uppercase text-sm tracking-wider flex items-center focus:outline-none">
+                Inne <span class="ml-1">▾</span>
+              </button>
+              <div id="inne-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-black text-white rounded shadow-lg z-50">
+                <a href="before-flight.html" class="block px-4 py-2 hover:bg-gray-800">Before Flight</a>
+                <a href="rules.html" class="block px-4 py-2 hover:bg-gray-800">Zasady i porady</a>
+                <a href="sop.html" class="block px-4 py-2 hover:bg-gray-800">SOP</a>
+                <a href="faq.html" class="block px-4 py-2 hover:bg-gray-800">FAQ</a>
+              </div>
+            </div>
+      
+            <a href="formularz.html" class="bg-yellow-400 text-black py-2 px-4 rounded-full hover:bg-yellow-300 transition font-bold shadow inline-block ml-2">Złóż aplikację</a>
+          </nav>
+      
+          <div class="lang-switcher ml-4">
+            <button class="lang-btn" data-lang="pl">PL</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="relative bg-black text-white py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+          <div class="starfield"></div>
+        </div>
+      
+        <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+         <!-- Main content -->
+  <main class="flex-grow max-w-5xl mx-auto px-6 py-12">
+
+    <h1 class="text-4xl font-extrabold mb-8 text-center">Rules & Guidelines
+    </h1>
+
+    <div class="pdf-container">
+      <iframe src="./src/documents/rules.pdf" allowfullscreen></iframe>
+    </div>
+
+
+
+
+
+  </main>
+
+
+        </div>
+      </section>
+
+
+  
+  <!-- Footer -->
+  <footer class="bg-black text-center py-6">
+    <p class="text-sm text-gray-400">&copy; 2025 CometJet Virtual Airlines</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

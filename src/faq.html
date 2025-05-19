@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ - CometJet Virtual Airlines</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-black text-white p-4 shadow-md">
+    <div class="flex items-center space-x-4 max-w-7xl mx-auto justify-between">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-4">
+          <img src="./src/img/logoCJ.png" alt="Logo" class="h-10 w-auto" />
+          <span class="text-xl font-bold">CometJet</span>
+        </a>
+      </div>
+  
+      <nav class="space-x-6 text-white text-sm uppercase tracking-wider flex items-center">
+        <a href="#hero" class="hover:text-yellow-400 transition">Start</a>
+        <a href="#flota" class="hover:text-yellow-400 transition">Flota</a>
+        <a href="#zaloga" class="hover:text-yellow-400 transition">Załoga</a>
+        <a href="#kontakt" class="hover:text-yellow-400 transition">Kontakt</a>
+  
+        <!-- Dropdown -->
+        <div class="relative" id="inne-menu">
+          <button id="inne-button" class="hover:text-yellow-400 transition uppercase text-sm tracking-wider flex items-center focus:outline-none">
+            Inne <span class="ml-1">▾</span>
+          </button>
+          <div id="inne-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-black text-white rounded shadow-lg z-50">
+            <a href="before-flight.html" class="block px-4 py-2 hover:bg-gray-800">Before Flight</a>
+            <a href="rules.html" class="block px-4 py-2 hover:bg-gray-800">Zasady i porady</a>
+            <a href="sop.html" class="block px-4 py-2 hover:bg-gray-800">SOP</a>
+            <a href="faq.html" class="block px-4 py-2 hover:bg-gray-800">FAQ</a>
+          </div>
+        </div>
+  
+        <a href="formularz.html" class="bg-yellow-400 text-black py-2 px-4 rounded-full hover:bg-yellow-300 transition font-bold shadow inline-block ml-2">Złóż aplikację</a>
+      </nav>
+  
+      <div class="lang-switcher ml-4">
+        <button class="lang-btn" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="flex-grow max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-extrabold mb-10 text-center">Najczęściej Zadawane Pytania (FAQ)</h1>
+
+    <div class="space-y-4">
+      <!-- FAQ item -->
+      <details class="bg-gray-800 rounded-lg p-4">
+        <summary class="cursor-pointer text-lg font-semibold hover:text-yellow-400 transition">Jak dołączyć do CometJet?</summary>
+        <p class="mt-2 text-sm text-gray-300">Aby dołączyć do CometJet Virtual Airlines, przejdź do formularza rekrutacyjnego na stronie głównej i wypełnij wszystkie wymagane dane. Skontaktujemy się z Tobą w ciągu 48 godzin.</p>
+      </details>
+
+      <details class="bg-gray-800 rounded-lg p-4">
+        <summary class="cursor-pointer text-lg font-semibold hover:text-yellow-400 transition">Czy potrzebuję prawdziwego doświadczenia jako pilot?</summary>
+        <p class="mt-2 text-sm text-gray-300">Nie, nasza linia wirtualna jest otwarta dla wszystkich – zarówno początkujących, jak i zaawansowanych. Oferujemy szkolenia i pomoc.</p>
+      </details>
+
+      <details class="bg-gray-800 rounded-lg p-4">
+        <summary class="cursor-pointer text-lg font-semibold hover:text-yellow-400 transition">Jakie symulatory są wspierane?</summary>
+        <p class="mt-2 text-sm text-gray-300">Wspieramy Microsoft Flight Simulator (MSFS), X-Plane oraz Prepar3D. Loty można wykonywać z użyciem klienta ACARS.</p>
+      </details>
+
+      <details class="bg-gray-800 rounded-lg p-4">
+        <summary class="cursor-pointer text-lg font-semibold hover:text-yellow-400 transition">Czy są obowiązkowe loty miesięczne?</summary>
+        <p class="mt-2 text-sm text-gray-300">Tak, wymagamy przynajmniej jednego lotu miesięcznie. W przypadku problemów – skontaktuj się z załogą przez e-mail lub Discord.</p>
+      </details>
+
+      <details class="bg-gray-800 rounded-lg p-4">
+        <summary class="cursor-pointer text-lg font-semibold hover:text-yellow-400 transition">Gdzie znajdę SOP i inne dokumenty?</summary>
+        <p class="mt-2 text-sm text-gray-300">Dokumenty takie jak SOP, regulamin czy instrukcje są dostępne w sekcji “Inne” w menu lub bezpośrednio na stronie <code>sop.html</code>.</p>
+      </details>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-center py-6">
+    <p class="text-sm text-gray-400">&copy; 2025 CometJet Virtual Airlines</p>
+  </footer>
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>

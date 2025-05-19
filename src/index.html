@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CometJet Virtual Airlines</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+ 
+
+
+<div id="video-intro">
+  <video id="intro-video" class="video-fullscreen" autoplay muted playsinline></video>
+  <button id="skip-button" class="absolute top-4 right-4 text-white bg-black bg-opacity-50 px-4 py-2 rounded">
+    Pomiń
+  </button>
+</div>
+
+  <header class="bg-black text-white p-4 shadow-md">
+    <div class="flex items-center space-x-4 max-w-7xl mx-auto justify-between">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-4">
+          <img src="./src/img/logoCJ.png" alt="Logo" class="h-10 w-auto" />
+          <span class="text-xl font-bold">CometJet</span>
+        </a>
+      </div>
+  
+      <nav class="space-x-6 text-white text-sm uppercase tracking-wider flex items-center">
+        <a href="#hero" class="hover:text-yellow-400 transition">Start</a>
+        <a href="#flota" class="hover:text-yellow-400 transition">Flota</a>
+        <a href="#zaloga" class="hover:text-yellow-400 transition">Załoga</a>
+        <a href="#kontakt" class="hover:text-yellow-400 transition">Kontakt</a>
+  
+        <!-- Dropdown -->
+        <div class="relative" id="inne-menu">
+          <button id="inne-button" class="hover:text-yellow-400 transition uppercase text-sm tracking-wider flex items-center focus:outline-none">
+            Inne <span class="ml-1">▾</span>
+          </button>
+          <div id="inne-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-black text-white rounded shadow-lg z-50">
+            <a href="before-flight.html" class="block px-4 py-2 hover:bg-gray-800">Before Flight</a>
+            <a href="rules.html" class="block px-4 py-2 hover:bg-gray-800">Zasady i porady</a>
+            <a href="sop.html" class="block px-4 py-2 hover:bg-gray-800">SOP</a>
+            <a href="faq.html" class="block px-4 py-2 hover:bg-gray-800">FAQ</a>
+          </div>
+        </div>
+  
+        <a href="formularz.html" class="bg-yellow-400 text-black py-2 px-4 rounded-full hover:bg-yellow-300 transition font-bold shadow inline-block ml-2">Złóż aplikację</a>
+      </nav>
+  
+      <div class="lang-switcher ml-4">
+        <button class="lang-btn" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-screen flex items-center justify-center bg-gradient-to-b from-indigo-900 via-black to-black overflow-hidden text-white">
+
+    <!-- Tło gwiazd: kilkanaście białych kropek z animacją migotania -->
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="stars"></div>
+    </div>
+  
+    <!-- Powolne przesuwające się chmury -->
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+      <div class="clouds"></div>
+    </div>
+  
+    <!-- Ciemna mgła dla kontrastu -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90"></div>
+  
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg">
+        <img src="./src/img/logocaleCJ.png" alt="logoCJ" class="mb-2 mx-auto" />
+      </h1>
+      <p class="mt-2 text-lg md:text-2xl text-gray-300 drop-shadow">
+        Lataj z nami wśród gwiazd.
+      </p>
+    </div>
+  
+  </section>
+
+  <!-- Flota Samolotów -->
+<section id="flota" class="py-16 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center">Nasza Flota</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Airbus A320neo">
+        <h3 class="text-xl font-bold mt-4">Airbus A320neo</h3>
+        <p class="text-gray-400 text-sm">Symbol innowacji w lotnictwie z nowoczesnymi silnikami i ekologicznym designem.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Airbus A320-200 CFM">
+        <h3 class="text-xl font-bold mt-4">Airbus A320-200 CFM</h3>
+        <p class="text-gray-400 text-sm">Komfortowy samolot o ekonomicznym zużyciu paliwa i cichej kabinie.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Airbus A321neo">
+        <h3 class="text-xl font-bold mt-4">Airbus A321neo</h3>
+        <p class="text-gray-400 text-sm">Efektywność dla średniodystansowych tras z rozszerzonym zasięgiem.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a330.png" class="rounded" alt="Airbus A330-900neo">
+        <h3 class="text-xl font-bold mt-4">Airbus A330-900neo</h3>
+        <p class="text-gray-400 text-sm">Nowoczesny szerokokadłubowy samolot do lotów długodystansowych.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a350.png" class="rounded" alt="Airbus A350-900">
+        <h3 class="text-xl font-bold mt-4">Airbus A350-900</h3>
+        <p class="text-gray-400 text-sm">Komfort i efektywność na trasach międzykontynentalnych.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Airbus A380-800">
+        <h3 class="text-xl font-bold mt-4">Airbus A380-800</h3>
+        <p class="text-gray-400 text-sm">Dwupoziomowy gigant redefiniujący luksusowe podróżowanie.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Boeing 737-800">
+        <h3 class="text-xl font-bold mt-4">Boeing 737-800</h3>
+        <p class="text-gray-400 text-sm">Wszechstronny samolot średniodystansowy z nowoczesną awioniką.</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 p-4">
+        <img src="./src/img/a320.png" class="rounded" alt="Boeing 737 MAX 8">
+        <h3 class="text-xl font-bold mt-4">Boeing 737 MAX 8</h3>
+        <p class="text-gray-400 text-sm">Nowoczesny i komfortowy samolot z cichymi silnikami i zaawansowanymi systemami.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Załoga -->
+  <section id="zaloga" class="py-20 bg-gray-700">
+    <div class="max-w-5xl mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-8">Poznaj załogę</h2>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="w-60 text-center">
+          <img src="./src/img/avia.avif" class="rounded-full border-4 border-yellow-400 mb-4" />
+          <h3 class="text-xl font-bold">Aviaced</h3>
+          <p class="text-gray-300">CEO</p>
+        </div>
+
+        <div class="w-60 text-center">
+          <img src="./src/img/avia.avif" class="rounded-full border-4 border-yellow-400 mb-4" />
+          <h3 class="text-xl font-bold">KayJayKay</h3>
+          <p class="text-gray-300">CEO&Marketing Manager</p>
+        </div>
+
+        <div class="w-60 text-center">
+          <img src="./src/img/avia.avif" class="rounded-full border-4 border-yellow-400 mb-4" />
+          <h3 class="text-xl font-bold">Adrian</h3>
+          <p class="text-gray-300">Administrator</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="py-20 bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8">Skontaktuj się z nami</h2>
+      <form action="https://formspree.io/f/mzzrwrwa" method="POST" class="grid gap-6 md:grid-cols-2">
+        <input type="text" name="name" placeholder="Imię i nazwisko" class="p-3 rounded bg-gray-800 border border-gray-700 text-white" required />
+        <input type="email" name="email" placeholder="Email" class="p-3 rounded bg-gray-800 border border-gray-700 text-white" required />
+        <textarea name="message" placeholder="Twoja wiadomość" rows="5" class="md:col-span-2 p-3 rounded bg-gray-800 border border-gray-700 text-white" required></textarea>
+        <button type="submit" class="md:col-span-2 bg-yellow-400 text-black font-bold py-3 rounded hover:bg-yellow-300 transition">Wyślij</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-center py-6">
+    <p class="text-sm text-gray-400">&copy; 2025 CometJet Virtual Airlines</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
