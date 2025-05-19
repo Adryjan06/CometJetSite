@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const skipButton = document.getElementById('skip-button');
 
   const videos = [
-    '/src/videos/plane1.mp4',
+    '/src/videos/plane1(4).mp4',
   ];
 
   if (video) {
