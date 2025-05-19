@@ -491,6 +491,8 @@ body, html {
     object-fit: cover;
 }
 
-#video-intro {
-  display: none !important;
+html, body {
+  overflow-y: auto !important;
+  height: auto !important;
 }
+
